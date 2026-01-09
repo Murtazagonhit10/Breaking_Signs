@@ -14,60 +14,158 @@
 ![Tqdm](https://img.shields.io/badge/Tqdm-4.x-brightgreen?logo=tqdm)
 
 
+A deep learning–based end-to-end system designed to classify traffic signs using Convolutional Neural Networks (CNNs).  
+The model is trained to recognize 43 different traffic sign classes and can predict signs from real-world images.
 
-A Deep Learning-based end-to-end system designed to classify traffic signs with high precision. This project utilizes a **Convolutional Neural Network (CNN)** trained on the **GTSRB (German Traffic Sign Recognition Benchmark)** dataset and features a real-time web interface built with **Streamlit**.
-
----
-
-## 📸 Project Overview
-
-This project focuses on the automation of traffic sign identification, a crucial component for Autonomous Vehicles and Advanced Driver Assistance Systems (ADAS). It handles the entire pipeline: from data preprocessing and CNN architecture design to model evaluation and deployment.
-
-### ✅ Key Features
-- **43 Different Classes:** Recognizes everything from speed limits and stop signs to danger warnings.
-- **Large Scale Training:** Trained on over **40,000 images** from the GTSRB dataset.
-- **Optimized CNN Architecture:** Uses multiple Convolutional layers, Max-Pooling, and Dropout for high accuracy and minimal overfitting.
-- **Real-Time Deployment:** Includes an interactive **Streamlit Web App** where users can upload images for instant classification.
-- **Performance Visualization:** Generates accuracy and loss graphs to monitor model convergence.
+This project demonstrates the complete machine learning workflow, from data exploration to deployment.
 
 ---
 
-## 🕹️ App Controls & Usage
+## 📦 Dataset
 
-| Component | Function |
-|-----------|----------|
-| **Image Uploader** | Drag and drop or browse local JPG/PNG files of traffic signs. |
-| **Predict Button** | Triggers the CNN model to analyze the uploaded image. |
-| **Classification Result** | Displays the predicted name of the traffic sign. |
-| **Confidence Score** | Shows a percentage indicating how "sure" the model is of its prediction. |
+The dataset used in this project is the **German Traffic Sign Recognition Benchmark (GTSRB)**.
 
----
+It is publicly available on Kaggle and contains **43 different traffic sign classes** collected from real-world driving scenarios.
 
-## 🛠️ Technologies Used
+🔗 Dataset link:  
+https://www.kaggle.com/datasets/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign
 
-- **Deep Learning Framework:** TensorFlow & Keras
-- **Image Processing:** OpenCV & PIL (Pillow)
-- **Data Manipulation:** Pandas & NumPy
-- **Machine Learning Utilities:** Scikit-learn (Train-Test Split)
-- **Visualization:** Matplotlib & Seaborn
-- **Deployment:** Streamlit
+This dataset includes:
+- Labeled training images  
+- Test images  
+- Metadata files  
+- Region of interest (ROI) information  
+
+It is widely used for benchmarking traffic sign recognition systems.
 
 ---
 
-## 🏗️ Model Architecture
+## 📌 Project Overview
 
-The model is built using a sequential CNN approach:
-1. **Convolutional Layers:** Extracts spatial features (edges, shapes) from images.
-2. **Max-Pooling:** Reduces dimensionality and computational load.
-3. **Dropout Layers:** Prevents overfitting by randomly deactivating neurons during training.
-4. **Flatten & Dense Layers:** Fully connected layers that perform the final classification into 43 categories.
-5. **Activation (Softmax):** Outputs a probability distribution across all classes.
+This project focuses on the automation of traffic sign identification, a crucial component in modern driver-assistance and autonomous driving systems.  
+The system processes images of traffic signs and predicts their correct category using a trained deep learning model.
+
+It includes:
+- Exploratory Data Analysis (EDA)
+- Image preprocessing and augmentation
+- CNN model building and training
+- Model evaluation and saving
+- Deployment using Streamlit
 
 ---
 
-## ▶️ How to Run
+## 📁 Project Structure
 
-### 1. Prerequisites
-Ensure you have Python installed. Install the necessary libraries using:
-```bash
-pip install tensorflow streamlit opencv-python pandas scikit-learn matplotlib tqdm
+best_traffic_sign_model.keras   → Trained CNN model  
+main2.ipynb                     → Complete notebook (EDA + Training + Evaluation)  
+requirements.txt                → Required Python libraries  
+traffic_app.py                  → Streamlit web application  
+traffic_report.pdf              → Detailed project report  
+
+---
+
+## 🧠 Notebook Breakdown (main2.ipynb)
+
+### 1. Data Inspection & Cleaning
+Checks missing values, duplicates, data types, and overall integrity of the dataset.
+
+### 2. Exploratory Data Analysis (EDA)
+- Visualizes class distribution  
+- Analyzes image dimensions  
+- Builds correlation matrices  
+- Studies dataset balance and structure  
+
+### 3. Image Preprocessing
+- Image reading using OpenCV  
+- Resizing to a fixed input shape  
+- Normalization of pixel values  
+- One-hot encoding of labels  
+- Train-test splitting  
+- Data augmentation
+
+### 4. CNN Model Architecture
+The CNN includes:
+- Convolutional layers  
+- Batch normalization  
+- Max pooling  
+- Dropout layers  
+- Fully connected dense layers  
+- Softmax output layer (43 classes)
+
+### 5. Model Training
+- Compiled using Adam optimizer  
+- Categorical cross-entropy loss  
+- Accuracy metric  
+- Trained on augmented image data  
+- Validation tracking
+
+### 6. Model Evaluation
+Plots and metrics are used to analyze training and validation performance.
+
+### 7. Model Saving
+The trained model is saved as:
+best_traffic_sign_model.keras
+
+### 8. Prediction System
+Implements a full prediction pipeline that:
+- Loads an image  
+- Preprocesses it  
+- Predicts its class  
+- Displays the traffic sign name  
+
+---
+
+## 🌐 Streamlit Web App (traffic_app.py)
+
+The Streamlit application allows users to:
+- Upload a traffic sign image  
+- Automatically preprocess the image  
+- Load the trained model  
+- Get instant predictions  
+- View the predicted sign label  
+
+---
+
+## ⭐ Key Features
+
+- End-to-end deep learning pipeline  
+- Strong exploratory data analysis  
+- Custom CNN architecture  
+- Data augmentation  
+- 43 traffic sign classes  
+- Saved trained model  
+- Interactive web application  
+- Real-world computer vision use case  
+
+---
+
+## ⚙️ Installation
+
+pip install -r requirements.txt
+
+---
+
+## ▶️ Run Notebook
+After downloading from the given link above and importing the datasets
+Open main2.ipynb and run all cells in order.
+
+---
+
+## ▶️ Run Web App
+
+streamlit run traffic_app.py (Given)
+
+---
+
+## 🎯 Outcome
+
+This project demonstrates how deep learning can be applied to build a real-world traffic sign recognition system, covering everything from raw data to deployment.
+
+---
+
+## 👨‍💻 Author
+
+Ghulam Murtaza 24L-2566 
+Yousaf Iqbal 24L-2539 
+Hannan Khan 24L-2550 
+FAST NUCES Lahore – Data Science
